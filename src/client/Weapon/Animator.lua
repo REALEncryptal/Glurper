@@ -9,13 +9,9 @@ function animation.new(model, animationsList)
 
   self.cache = {}
   for name, id in pairs(animationsList) do
-    if id:IsA("Animation") then
-      self.cache[id.Name] = self.animator:LoadAnimation(id)
-    else
-      local anim = Instance.new("Animation")
-      anim.AnimationId = "rbxassetid://"..tostring(id)
-      self.cache[name] = self.animator:LoadAnimation(anim)
-    end
+    local anim = Instance.new("Animation")
+    anim.AnimationId = "rbxassetid://"..tostring(id)
+    self.cache[name] = self.animator:LoadAnimation(anim)
   end 
 
 	return self
